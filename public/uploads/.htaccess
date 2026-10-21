@@ -1,0 +1,14 @@
+# Prevent direct access to uploads
+# Deny script execution
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phps|pht|shtml|pl|py|cgi)$">
+    Deny from all
+</FilesMatch>
+
+# Only allow specific file types
+<FilesMatch "\.(jpg|jpeg|png|gif|pdf)$">
+    Allow from all
+</FilesMatch>
+
+Options -Indexes
+Options -ExecCGI
+AddHandler cgi-script .php .phtml .php3 .php4 .php5 .php7 .phps .pht .pl .py .cgi
